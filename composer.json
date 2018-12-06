@@ -3,7 +3,7 @@
   "description": "The ThinkPHP5 Redis Classes",
   "keywords": [
     "Redis",
-    "ThinkPHP5"
+    "ThinkPHP5",
 	"TP5Redis"
   ],
   "homepage": "https://github.com/xiucaiwu/tp5redis",
