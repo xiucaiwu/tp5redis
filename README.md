@@ -38,3 +38,20 @@ return [
 	'prefix' => '', //前缀
 ];
 ```
+
+## 例子
+```
+<?php
+	namespace app\index\controller;
+	use tp5redis\Redis;
+
+	class index
+	{
+		public function test()
+		{
+			  Redis::set('abc',111);
+			  $res = Redis::get('abc');
+			  var_dump($res);  //输出111代表成功
+		}
+	｝
+```

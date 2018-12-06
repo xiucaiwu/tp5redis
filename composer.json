@@ -1,0 +1,29 @@
+{
+  "name": "xiucaiwu/tp5redis",
+  "description": "The ThinkPHP5 Redis Classes",
+  "keywords": [
+    "Redis",
+    "ThinkPHP5"
+	"TP5Redis"
+  ],
+  "homepage": "https://github.com/xiucaiwu/tp5redis",
+  "license": "MIT",
+  "support": {
+    "source": "https://github.com/xiucaiwu/tp5redis"
+  },
+  "authors": [
+    {
+      "name": "xiucai",
+      "email": "xiuwu_just@163.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "topthink/framework": ">=5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "tp5redis\\": "src"
+    }
+  }
+}
