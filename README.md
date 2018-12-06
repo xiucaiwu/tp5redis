@@ -1,7 +1,14 @@
 # tp5redis
 tp5下的Redis操作类,对原Redis的二次封装,支持编辑器识别
 
-## 使用
+## 安装
+tp5.0
+> composer require "xiucaiwu/tp5tool:dev-5.0.x-redis"
+
+tp5.1
+> composer require "xiucaiwu/tp5tool:dev-5.1.x-redis"
+
+## 配置
 tp5.0
 ```
 config.php
