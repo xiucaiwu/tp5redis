@@ -6,7 +6,7 @@
  * Date: 2018-09-04
  * Time: 11:11
  */
-namespace org\redis\driver;
+namespace tp5redis\redis\driver;
 class Redis{
     /**
      * 驱动句柄
