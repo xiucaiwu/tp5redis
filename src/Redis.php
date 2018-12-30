@@ -1,6 +1,5 @@
 <?php
 namespace tp5redis;
-use think\facade\Config;
 
 /**
  * Class Redis
@@ -123,7 +122,11 @@ class Redis
      * @param array $config
      */
     private static function init(){
-        self::$config = array_merge(self::$config, Config::pull('redis'));
+        if(defined('THINK_VERSION')) {
+            self::$config = array_merge(self::$config, \think\Config::get('redis'));
+        } else {
+            self::$config = array_merge(self::$config, \think\facade\Config::pull('redis'));
+        }
         if( is_null(self::$handler) ) {
             $class = '\\tp5redis\\redis\\driver\\Redis';  //此处部署Redis驱动所在位置，本例为org/redis/driver/Redis，实际根据位置修改
             self::$handler = new $class(self::$config);
