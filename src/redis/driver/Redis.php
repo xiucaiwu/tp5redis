@@ -57,6 +57,7 @@ class Redis{
      */
     public function hGet($key,$field)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hGet($key,$field);
     }
 
@@ -69,6 +70,7 @@ class Redis{
      */
     public function hSet($key,$field,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hSet($key,$field,$value);
     }
 
@@ -80,6 +82,7 @@ class Redis{
      */
     public function hExists($key,$field)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hExists($key,$field);
     }
 
@@ -91,6 +94,7 @@ class Redis{
      */
     public function hDel($key,$field)
     {
+        $key = $this->getCacheKey($key);
         $fieldArr=explode(',',$field);
         $delNum=0;
         foreach($fieldArr as $row)
@@ -109,6 +113,7 @@ class Redis{
      */
     public function hLen($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hLen($key);
     }
 
@@ -121,6 +126,7 @@ class Redis{
      */
     public function hSetNx($key,$field,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hSetNx($key,$field,$value);
     }
 
@@ -133,6 +139,7 @@ class Redis{
     public function hMset($key,$value)
     {
         if(!is_array($value)) return false;
+        $key = $this->getCacheKey($key);
         return $this->handler->hMset($key,$value);
     }
 
@@ -144,6 +151,7 @@ class Redis{
      */
     public function hMget($key,$field)
     {
+        $key = $this->getCacheKey($key);
         if(!is_array($field)) $field=explode(',', $field);
         return $this->handler->hMget($key,$field);
     }
@@ -157,6 +165,7 @@ class Redis{
      */
     public function hIncrBy($key,$field,$value)
     {
+        $key = $this->getCacheKey($key);
         $value=intval($value);
         return $this->handler->hIncrBy($key,$field,$value);
     }
@@ -168,6 +177,7 @@ class Redis{
      */
     public function hKeys($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hKeys($key);
     }
 
@@ -178,6 +188,7 @@ class Redis{
      */
     public function hVals($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hVals($key);
     }
 
@@ -188,6 +199,7 @@ class Redis{
      */
     public function hGetAll($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->hGetAll($key);
     }
 
@@ -203,6 +215,7 @@ class Redis{
      */
     public function zAdd($key,$order,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zAdd($key,$order,$value);
     }
 
@@ -215,6 +228,7 @@ class Redis{
      */
     public function zinCry($key,$num,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zinCry($key,$num,$value);
     }
 
@@ -226,6 +240,7 @@ class Redis{
      */
     public function zRem($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRem($key,$value);
     }
 
@@ -238,6 +253,7 @@ class Redis{
      */
     public function zRange($key,$start,$end)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRange($key,$start,$end);
     }
 
@@ -250,6 +266,7 @@ class Redis{
      */
     public function zRevRange($key,$start,$end)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRevRange($key,$start,$end);
     }
 
@@ -266,6 +283,7 @@ class Redis{
      */
     public function zRangeByScore($key,$start='-inf',$end="+inf",$option=array())
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRangeByScore($key,$start,$end,$option);
     }
 
@@ -282,6 +300,7 @@ class Redis{
      */
     public function zRevRangeByScore($key,$start='-inf',$end="+inf",$option=array())
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRevRangeByScore($key,$start,$end,$option);
     }
 
@@ -294,6 +313,7 @@ class Redis{
      */
     public function zCount($key,$start,$end)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zCount($key,$start,$end);
     }
 
@@ -305,6 +325,7 @@ class Redis{
      */
     public function zScore($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zScore($key,$value);
     }
 
@@ -316,6 +337,7 @@ class Redis{
      */
     public function zRank($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRank($key,$value);
     }
 
@@ -327,6 +349,7 @@ class Redis{
      */
     public function zRevRank($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRevRank($key,$value);
     }
 
@@ -340,6 +363,7 @@ class Redis{
      */
     public function zRemRangeByScore($key,$start,$end)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zRemRangeByScore($key,$start,$end);
     }
 
@@ -350,6 +374,7 @@ class Redis{
      */
     public function zCard($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->zCard($key);
     }
     /*********************队列操作命令************************/
@@ -362,6 +387,7 @@ class Redis{
      */
     public function rPush($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->rPush($key,$value);
     }
 
@@ -373,6 +399,7 @@ class Redis{
      */
     public function rPushx($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->rPushx($key,$value);
     }
 
@@ -384,6 +411,7 @@ class Redis{
      */
     public function lPush($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lPush($key,$value);
     }
 
@@ -395,6 +423,7 @@ class Redis{
      */
     public function lPushx($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lPushx($key,$value);
     }
 
@@ -405,6 +434,7 @@ class Redis{
      */
     public function lLen($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lLen($key);
     }
 
@@ -417,6 +447,7 @@ class Redis{
      */
     public function lRange($key,$start,$end)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lrange($key,$start,$end);
     }
 
@@ -428,6 +459,7 @@ class Redis{
      */
     public function lIndex($key,$index)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lIndex($key,$index);
     }
 
@@ -440,6 +472,7 @@ class Redis{
      */
     public function lSet($key,$index,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lSet($key,$index,$value);
     }
 
@@ -448,8 +481,10 @@ class Redis{
      * @param string $key
      * @param int $index
      * @link  http://redis.io/commands/lindex
+     * @return bool|mixed
      */
     public function lGet( $key, $index ) {
+        $key = $this->getCacheKey($key);
         return $this->handler->lGet($key,$index);
     }
 
@@ -466,6 +501,7 @@ class Redis{
      */
     public function lRem($key,$count,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lRem($key,$value,$count);
     }
 
@@ -476,6 +512,7 @@ class Redis{
      */
     public function lPop($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->lPop($key);
     }
 
@@ -486,6 +523,7 @@ class Redis{
      */
     public function rPop($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->rPop($key);
     }
 
@@ -499,6 +537,7 @@ class Redis{
      */
     public function set($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->set($key,$value);
     }
 
@@ -509,6 +548,7 @@ class Redis{
      */
     public function get($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->get($key);
     }
 
@@ -521,6 +561,7 @@ class Redis{
      */
     public function setex($key,$expire,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->setex($key,$expire,$value);
     }
 
@@ -533,6 +574,7 @@ class Redis{
      */
     public function setnx($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->setnx($key,$value);
     }
 
@@ -543,7 +585,12 @@ class Redis{
      */
     public function mset($arr)
     {
-        return $this->handler->mset($arr);
+        $newArr = array();
+        foreach ($arr as $key => $ar) {
+            $tmpKey = $this->getCacheKey($key);
+            $newArr[$tmpKey] = $ar;
+        }
+        return $this->handler->mset($newArr);
     }
 
     /*************redis　无序集合操作命令*****************/
@@ -555,6 +602,7 @@ class Redis{
      */
     public function sMembers($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->sMembers($key);
     }
 
@@ -566,6 +614,8 @@ class Redis{
      */
     public function sDiff($key1,$key2)
     {
+        $key1 = $this->getCacheKey($key1);
+        $key2 = $this->getCacheKey($key2);
         return $this->handler->sDiff($key1,$key2);
     }
 
@@ -581,6 +631,7 @@ class Redis{
         }else{
             $arr=$value;
         }
+        $key = $this->getCacheKey($key);
         foreach($arr as $row) $this->handler->sAdd($key,$row);
     }
 
@@ -591,6 +642,7 @@ class Redis{
      */
     public function sCard($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->sCard($key);
     }
 
@@ -602,6 +654,7 @@ class Redis{
      */
     public function sRem($key,$value)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->sRem($key,$value);
     }
 
@@ -671,6 +724,7 @@ class Redis{
      */
     public function keys($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->keys($key);
     }
 
@@ -693,6 +747,7 @@ class Redis{
      */
     public function exists($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->exists($key);
     }
 
@@ -704,6 +759,7 @@ class Redis{
      */
     public function expire($key,$expire)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->expire($key,$expire);
     }
 
@@ -714,6 +770,7 @@ class Redis{
      */
     public function ttl($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->ttl($key);
     }
 
@@ -725,6 +782,7 @@ class Redis{
      */
     public function exprieAt($key,$time)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->expireAt($key,$time);
     }
 
@@ -813,6 +871,7 @@ class Redis{
      */
     public function watch($key)
     {
+        $key = $this->getCacheKey($key);
         return $this->handler->watch($key);
     }
 
@@ -860,7 +919,8 @@ class Redis{
      * 测试当前链接是不是已经失效
      * 没有失效返回+PONG
      * 失效返回false
-     * @return string|bool
+     * @return string
+     * @throws \RedisException
      */
     public function ping()
     {
@@ -884,23 +944,23 @@ class Redis{
      * @param string $ids
      * @return array|bool
      */
-    public function hashAll($prefix,$ids)
-    {
-        if($ids==false)
-            return false;
-        if(is_string($ids))
-            $ids=explode(',', $ids);
-        $arr=array();
-        foreach($ids as $id)
-        {
-            $key=$prefix.'.'.$id;
-            $res=self::hGetAll($key);
-            if($res!=false)
-                $arr[]=$res;
-        }
-
-        return $arr;
-    }
+//    public function hashAll($prefix,$ids)
+//    {
+//        if($ids==false)
+//            return false;
+//        if(is_string($ids))
+//            $ids=explode(',', $ids);
+//        $arr=array();
+//        foreach($ids as $id)
+//        {
+//            $key=$prefix.'.'.$id;
+//            $res=self::hGetAll($key);
+//            if($res!=false)
+//                $arr[]=$res;
+//        }
+//
+//        return $arr;
+//    }
 
     /**
      * 生成一条消息，放在redis数据库中。使用0号库。
@@ -946,5 +1006,16 @@ class Redis{
         $redisStr = implode(' ', $cmdArr);
         $cmd = "{$redisStr} KEYS \"{$keys}\" | xargs {$redisStr} del";
         return $cmd;
+    }
+
+    /**
+     * 获取实际的缓存标识
+     * @access protected
+     * @param  string $key 缓存名
+     * @return string
+     */
+    protected function getCacheKey($key)
+    {
+        return $this->options['prefix'] . $key;
     }
 }
